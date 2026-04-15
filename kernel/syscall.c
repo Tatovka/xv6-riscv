@@ -104,6 +104,8 @@ extern uint64 sys_close(void);
 extern uint64 sys_print_pgtable(void);
 extern uint64 sys_remove_flags(void);
 extern uint64 sys_check_flags(void);
+extern uint64 sys_get_rtc(void);
+
 
 // An array mapping syscall numbers from syscall.h
 // to the function that handles the system call.
@@ -132,6 +134,7 @@ static uint64 (*syscalls[])(void) = {
 [SYS_print_pgtable] sys_print_pgtable,
 [SYS_remove_flags] sys_remove_flags,
 [SYS_check_flags] sys_check_flags,
+  [SYS_get_rtc]   sys_get_rtc,
 };
 
 void

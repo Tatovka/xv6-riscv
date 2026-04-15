@@ -44,4 +44,4 @@ entry("pause");
 entry("uptime");
 entry("print_pgtable");
 entry("remove_flags");
-entry("check_flags");
+entry("check_flags");entry("get_rtc");

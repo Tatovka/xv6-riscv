@@ -51,3 +51,5 @@ void free(void*);
 void print_pgtable();
 uint64 remove_flags(uint64, uint64, uint64);
 uint64 check_flags(uint64, uint64, uint64);
+
+uint64 get_rtc();

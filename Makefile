@@ -29,7 +29,8 @@ OBJS = \
   $K/kernelvec.o \
   $K/plic.o \
   $K/virtio_disk.o\
-  $K/print_pgtable.o
+  $K/print_pgtable.o\
+  $K/rtc.o\
 
 # riscv64-unknown-elf- or riscv64-linux-gnu-
 # perhaps in /opt/riscv/bin
@@ -177,7 +178,7 @@ QEMUOPTS += -drive file=fs.img,if=none,format=raw,id=x0
 QEMUOPTS += -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
 
 qemu: check-qemu-version $K/kernel fs.img
-	$(QEMU) $(QEMUOPTS)
+	$(QEMU) $(QEMUOPTS) -rtc base=localtime
 
 .gdbinit: .gdbinit.tmpl-riscv
 	sed "s/:1234/:$(GDBPORT)/" < $^ > $@
