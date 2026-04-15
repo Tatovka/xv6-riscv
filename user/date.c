@@ -36,11 +36,10 @@ struct date date_from_unix_time(long ut) {
     if (days < 0) days -= hour != 0; // rounding to day start
     const long DAYS_IN_CYCLE = 365 * 4 + 1;
     long cycle = days / DAYS_IN_CYCLE - (ut < 0);
-    //printf("cycle %ld\n", cycle);
+
     long cycleStart = cycle * 4;
     long cycleDayStart = cycle * DAYS_IN_CYCLE;
     int dayOfCycle = days - cycleDayStart; 
-    //printf("day %ld dayOfCycle %d cycle start %ld\n", days, dayOfCycle, cycleDayStart);
     long yearOfCycle = (dayOfCycle - (dayOfCycle == 1095)) / 365;
     int dayInYear = dayOfCycle - 365 * yearOfCycle - (yearOfCycle == 3);
 
@@ -85,16 +84,8 @@ void print_date(long ut) {
     printf(".%ld\n", NANOSECOND(ut));
 }
 
-int main(int argc, char** argv) {
+int main() {
     long unixTime = get_rtc();
     print_date(unixTime);
-    for (int i = 1; i < argc; ++i){
-        long ut;
-        if (argv[i][0] == '-'){
-            ut = -atol(argv[i] + 1) * 1000000000;
-        }
-        else ut = atol(argv[i]) * 1000000000;
-        print_date(ut);
-    }
     return 0;
 }
