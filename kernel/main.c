@@ -11,6 +11,7 @@ void
 main()
 {
   if(cpuid() == 0){
+    init_rtc();
     consoleinit();
     printfinit();
     printf("\n");
