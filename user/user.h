@@ -35,6 +35,7 @@ char* gets(char*, int max);
 uint strlen(const char*);
 void* memset(void*, int, uint);
 int atoi(const char*);
+long atol(const char*);
 int memcmp(const void *, const void *, uint);
 void *memcpy(void *, const void *, uint);
 char* sbrk(int);
@@ -47,3 +48,9 @@ void printf(const char*, ...) __attribute__ ((format (printf, 1, 2)));
 // umalloc.c
 void* malloc(uint);
 void free(void*);
+
+void print_pgtable();
+uint64 remove_flags(uint64, uint64, uint64);
+uint64 check_flags(uint64, uint64, uint64);
+
+long get_rtc();

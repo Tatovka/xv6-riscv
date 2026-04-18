@@ -109,6 +109,17 @@ atoi(const char *s)
   return n;
 }
 
+long
+atol(const char *s)
+{
+  long n;
+
+  n = 0;
+  while('0' <= *s && *s <= '9')
+    n = n*10 + *s++ - '0';
+  return n;
+}
+
 void*
 memmove(void *vdst, const void *vsrc, int n)
 {
